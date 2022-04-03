@@ -12,7 +12,7 @@ using namespace std;
 
 // Scene
 const int width = 20;
-const int height = 20;
+const int height = 10;
 
 // Position
 int x,y;
@@ -85,8 +85,7 @@ void Draw(){
 }
 
 void Input(){
-
-if(_kbhit()){
+  if(_kbhit()){
   switch(_getch()){
     case 'w':
       dir = UP;
@@ -120,47 +119,46 @@ if(_kbhit()){
 }
 
 void Logic(){
-switch(dir){
-  case STOP:
-  break;
+  switch(dir){
+    case STOP:
+    break;
 
-  case UP:
-  y --;
-  break;
+    case UP:
+    y --;
+    break;
 
-  case DOWN:
-  y ++;
-  break;
+    case DOWN:
+    y ++;
+    break;
 
-  case LEFT:
-  x--;
-  break;
+    case LEFT:
+    x--;
+    break;
 
-  case RIGHT:
-  x++;
-  break;
+    case RIGHT:
+    x++;
+    break;
 
-  default:
-  break;
-}
+    default:
+    break;
+  }
 
-// Got fruit
-if(x == fruitX, y == fruitY) {
-  score+= 100;
-  fruitX = rand() % width;
-  fruitY = rand() % height;
-}
+  // Got fruit
+  if(x == fruitX, y == fruitY) {
+    score+= 100;
+    fruitX = rand() % width;
+    fruitY = rand() % height;
+  }
 
-// Got K
-if(x == gX, y == gY) {
-  score+= 1000;
-  gX = rand() % width;
-  gY = rand() % height;
-}
+  // Got K
+  if(x == gX, y == gY) {
+    score+= 1000;
+    gX = rand() % width;
+    gY = rand() % height;
+  }
 
-// Game over
-if(x > width || x <= 0 || y >= height || y < 0) gameOver = true;
-
+  // Game over
+  if(x > width || x <= 0 || y >= height || y < 0) gameOver = true;
 }
 
 int main() {
